@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    git基本使用 |  头号咸鱼
+    python爬虫cookie模拟登陆(二) |  头号咸鱼
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-git基本使用"
+  id="post-python爬虫cookie模拟登陆(二)"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,22 +66,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  git基本使用
+  python爬虫cookie模拟登陆(二)
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/07/26/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-07-26T13:43:37.505Z" itemprop="datePublished">2020-07-26</time>
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86(%E4%BA%8C)/" class="article-date">
+  <time datetime="2020-07-26T14:38:12.099Z" itemprop="datePublished">2020-07-26</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">553</span>
+            <span class="post-count">808</span>
         </span>
     </span>
 
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -105,53 +105,21 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="一、下载并安装git"><a href="#一、下载并安装git" class="headerlink" title="一、下载并安装git"></a>一、下载并安装git</h2><h2 id="二、开始操作"><a href="#二、开始操作" class="headerlink" title="二、开始操作"></a>二、开始操作</h2><ul>
-<li>右键然后点击git bash进入命令框</li>
-<li>命令是仿照linux，可以使用ls，pwd，cd</li>
-<li>创建一个文件夹，在此路径下git init，创建了一个仓库，会有一个.git文件</li>
-<li>三、配置仓库</li>
-<li>git config –global user.name “用户名字”</li>
-<li>git config –global user.email “邮件地址”<h2 id="四、基本操作"><a href="#四、基本操作" class="headerlink" title="四、基本操作"></a>四、基本操作</h2><h4 id="1-添加提交内容"><a href="#1-添加提交内容" class="headerlink" title="1. 添加提交内容"></a>1. 添加提交内容</h4></li>
-<li>git add sunck.txt</li>
-<li>git commit -m “第一次添加”<blockquote>
-<p>git add .</p>
-</blockquote>
-</li>
+  <h1 id="批量爬取并存入数据库"><a href="#批量爬取并存入数据库" class="headerlink" title="批量爬取并存入数据库"></a>批量爬取并存入数据库</h1><h6 id="小插曲"><a href="#小插曲" class="headerlink" title="小插曲"></a>小插曲</h6><ul>
+<li>有点打脸，还以为自己失败了，刚开始自己换了个地址，发现输出的是空列表，以为没换个地址就要换个cookie，这样的话就该放弃了。</li>
+<li>然后在取新鲜的cookie，发现只是时间变了，然后在爬多个不同地址，发现成功了，可已推测cookie在一定时间内有效。<br><img src="https://img-blog.csdnimg.cn/20191211160447548.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNjgzNTAz,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>从cookie信息中可以看出里面包含了时间点和有效时间长<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2></li>
 </ul>
-<p>git commit . -m “全部提交”</p>
-<h4 id="2-查看状态"><a href="#2-查看状态" class="headerlink" title="2. 查看状态"></a>2. 查看状态</h4><ul>
-<li>git status<br>//告诉你哪个文件被改变了</li>
-<li>git diff<br>//查看修改的内容</li>
-<li>git log<br>//查看日志</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit f08b4228397124c50d65583567e5c217801d9fe4 (HEAD -&gt; master)</span><br><span class="line">Author: liangxinxin5102 &lt;1974733812@qq.com&gt;</span><br><span class="line">Date:   Sun Dec 29 01:04:33 2019 +0800</span><br><span class="line"></span><br><span class="line">    一次添添加</span><br><span class="line">    </span><br><span class="line">会显示提交的编号，分支，用户，时间，注释</span><br><span class="line">$ git log --pretty&#x3D;oneline</span><br><span class="line">f08b4228397124c50d65583567e5c217801d9fe4 (HEAD -&gt; master) 一次添添加</span><br></pre></td></tr></table></figure>
-<h4 id="3-回归版本"><a href="#3-回归版本" class="headerlink" title="3. 回归版本"></a>3. 回归版本</h4><ul>
-<li>git reset –hard HEAD^        回到上一版本</li>
-<li>git reset –hard HEAD^^       回到上上一版本</li>
-<li>git reset –hard HEAD~100     回到上100版本</li>
-<li>git reset –hard HEAD         具体版本号 </li>
-<li>git refog    记录每一次提交的命令<h4 id="4-工作区与缓存区"><a href="#4-工作区与缓存区" class="headerlink" title="4. 工作区与缓存区"></a>4. 工作区与缓存区</h4><a href="https://blog.csdn.net/qq_34964399/article/details/79869512" target="_blank" rel="noopener">传送门</a></li>
-<li>checkout –filename //让文件回到add或者commit状态<h4 id="5-连接GitHub服务器–密钥与公钥"><a href="#5-连接GitHub服务器–密钥与公钥" class="headerlink" title="5. 连接GitHub服务器–密钥与公钥"></a>5. 连接GitHub服务器–密钥与公钥</h4></li>
-<li>ssh-keygen    -t      rsa         -C         “<a href="mailto:1974733812@qq.com">1974733812@qq.com</a>“</li>
-<li>ssh   -T   <a href="mailto:git@github.com">git@github.com</a>                           #测试是否连接成功<blockquote>
-<p>注意记录位置，要将公钥复制粘贴到github账号的设置里</p>
-</blockquote>
-<h4 id="6-创建远程仓库"><a href="#6-创建远程仓库" class="headerlink" title="6. 创建远程仓库"></a>6. 创建远程仓库</h4><img src="http://youdaoyunlxx.oss-cn-hangzhou.aliyuncs.com/git/clipboard.png" alt="image"></li>
-<li>关联远程仓库     git remote add origin <a href="https://github.com/liangxinxin5102/git_test1.git" target="_blank" rel="noopener">https://github.com/liangxinxin5102/git_test1.git</a></li>
-<li>删除关联    git  remote rm origin<h4 id="7-远程仓库的推送与拉取"><a href="#7-远程仓库的推送与拉取" class="headerlink" title="7. 远程仓库的推送与拉取"></a>7. 远程仓库的推送与拉取</h4>（先要拉取，才能推送  git pull origin master –allow-unrelated-histories）</li>
-<li>推送      git push origin master</li>
-<li>拉取       git pull origin master<blockquote>
-<p>正常情况下我们没有本地库，开发一般是现有远程库再克隆本地库，这样远程就不会和本地冲突了 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="comment">#传入爬去地址url</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_request</span><span class="params">(url)</span>:</span></span><br><span class="line">    headers = &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0'</span>,</span><br><span class="line">        <span class="string">'Cookie'</span>:<span class="string">'jianyue_session=eyJpdiI6ImZoZVlcL1RcLzRuN0U2cmlCR2ZJcTFhdz09IiwidmFsdWUiOiJrbzZkWE9NREkxSkMwaHhEZXc0THB1NFhTXC85aDlmSjNqU2o2ZUtcL2NrdGNPeWg4cWd5XC9JQ3NENVlpcnhqcTk4eWt2NTRYNjBoMFZYUExMdGJKWUJKZz09IiwibWFjIjoiNDU5MmEzZmE1N2RhMzQ0MTFlM2M2NDMyZjg3MTQ0NTE2ZGFmM2I1ZTY1MzA5MWY1MDFlNmRiMjliMmI5ZTUxYyJ9; expires=Wed, 11-Dec-2019 04:10:16 GMT; Max-Age=7200; path=/; httponly'</span></span><br><span class="line">    &#125;</span><br><span class="line">    params = &#123;</span><br><span class="line">        <span class="string">"_token"</span>: <span class="string">"P1o8Fz9ZOAuBojBsNGNfPa9vivr5PqRBUFwstL8I"</span>,</span><br><span class="line">        <span class="string">"mobile"</span>: <span class="string">'15263819410'</span>,</span><br><span class="line">        <span class="string">"password"</span>: <span class="string">"15263819410"</span>,</span><br><span class="line">        <span class="string">"remember"</span>: <span class="string">"1"</span></span><br><span class="line">    &#125;</span><br><span class="line">    session = requests.Session()</span><br><span class="line">    post_url = <span class="string">'http://jianyue.pro/login'</span></span><br><span class="line">    image_url = <span class="string">"http://jianyue.pro"</span></span><br><span class="line">    session.post(post_url,data=params,headers=headers)</span><br><span class="line">    resopnse = session.get(url,headers=headers)</span><br><span class="line">    resopnse.encoding=<span class="string">'utf-8'</span></span><br><span class="line">    <span class="keyword">if</span> resopnse.status_code == <span class="number">200</span>:</span><br><span class="line">        result_status = resopnse.status_code</span><br><span class="line">        htmlEmts_name_2 = etree.HTML(resopnse.text).xpath(<span class="string">'/html/head/title/text()'</span>)</span><br><span class="line">        result_title = <span class="string">''</span>.join(htmlEmts_name_2)</span><br><span class="line">        htmlEmts_name = etree.HTML(resopnse.text).xpath(<span class="string">'/html/body/div[4]/div/div/img/@src'</span>)</span><br><span class="line">        result_image = <span class="string">''</span>.join(htmlEmts_name)</span><br><span class="line">        result_image = image_url + result_image</span><br><span class="line">        htmlEmts_name_3 = etree.HTML(resopnse.text).xpath(<span class="string">'/html/body/div[5]/p/text()'</span>)</span><br><span class="line">        result_cotent = <span class="string">''</span>.join(htmlEmts_name_3)</span><br><span class="line">        htmlEmts_name_4 = etree.HTML(resopnse.text).xpath(<span class="string">'/html/body/div[4]/div/dl/dd[2]/span/text()'</span>)</span><br><span class="line">        result_writer = <span class="string">''</span>.join(htmlEmts_name_4)</span><br><span class="line">        htmlEmts_name_5 = etree.HTML(resopnse.text).xpath(<span class="string">'/html/body/div[4]/div/dl/dd[1]/span[2]/text()'</span>)</span><br><span class="line">        result_sorce = <span class="string">''</span>.join(htmlEmts_name_5)</span><br><span class="line">        my_dict = &#123;</span><br><span class="line">        <span class="comment">#"status": result_status,</span></span><br><span class="line">        <span class="string">"title"</span>:result_title,</span><br><span class="line">        <span class="string">"writer"</span>:result_writer,</span><br><span class="line">        <span class="string">"content"</span>:result_cotent,</span><br><span class="line">        <span class="string">"sorce"</span>:result_sorce,</span><br><span class="line">        <span class="string">"image"</span>:result_image</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> my_dict</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"网页不存在"</span></span><br><span class="line">    <span class="comment"># print(result_title)</span></span><br><span class="line">    <span class="comment"># print(result_cotent)</span></span><br><span class="line">    <span class="comment"># print(result_image)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">for</span> num_1 <span class="keyword">in</span> range(<span class="number">7836</span>,<span class="number">9200</span>):</span><br><span class="line">        id = num_1</span><br><span class="line">        url = <span class="string">"http://jianyue.pro/app/ebook/details/"</span></span><br><span class="line">        url =url + str(num_1)</span><br><span class="line">        <span class="comment">#print("爬取电子书第%d页，地址为：%s" % (num_1,url))</span></span><br><span class="line">        result = my_request(url)</span><br><span class="line">        <span class="keyword">if</span> result == <span class="string">"网页不存在"</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="comment">#print(result['title'])</span></span><br><span class="line">        db = pymysql.connect(<span class="string">"localhost"</span>, <span class="string">"root"</span>, <span class="string">"password"</span>, <span class="string">"book_xianyushaishu"</span>, charset=<span class="string">"utf8"</span>)</span><br><span class="line">        cursor = db.cursor()  <span class="comment"># 建立一个游标对象</span></span><br><span class="line">        sql = <span class="string">"INSERT INTO JYUE(TITLE, \</span></span><br><span class="line"><span class="string">               ID, WRITER,CONTENT,SORCE,IMAGE ) \</span></span><br><span class="line"><span class="string">               VALUES ('%s', '%d','%s','%s','%s','%s')"</span> % \</span><br><span class="line">              (result[<span class="string">'title'</span>], id, result[<span class="string">'writer'</span>],result[<span class="string">'content'</span>],result[<span class="string">'sorce'</span>],result[<span class="string">'image'</span>])</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cursor.execute(sql)</span><br><span class="line">            db.commit()  <span class="comment"># 对于数据增删改之后一定要提交操作</span></span><br><span class="line">            cursor.close()  <span class="comment"># 关闭游标</span></span><br><span class="line">            db.close()  <span class="comment"># 关闭数据库连接</span></span><br><span class="line">            print(<span class="string">"第%d条数据爬取成功"</span>%num_1)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            print(<span class="string">"第%d条数据爬取失败---------------"</span>%num_1)</span><br><span class="line">    print(<span class="string">"结束"</span>)</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>克隆 git clone  <a href="https://github.com/liangxinxin5102/git_test1.git" target="_blank" rel="noopener">https://github.com/liangxinxin5102/git_test1.git</a></li>
-</ul>
-</blockquote>
-<h4 id="8-不提交指定文件"><a href="#8-不提交指定文件" class="headerlink" title="8. 不提交指定文件"></a>8. 不提交指定文件</h4></li>
-<li>创建文件     touch .gitignore</li>
-<li>在 .gitignore文件中填写不提交的文件名，此目录下的文件不会被提交， .gitignore文件会提交上去<h2 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h2></li>
-<li>创建分支      git branch 分支名</li>
-<li>切换分支       git checkout 分支名</li>
-<li>创建与切换同时进行   git checkout -b 分支名<h2 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h2></li>
+<li>代码简单的封装了一下，my_request函数功能为:传入url，返回爬取的相关信息，然后用字典的形式返回。</li>
+<li>让后再将信息写入到本地数据库，这段代码不多解释了，我也是照套的。</li>
+<li>还有try：部分代码报错的话就会直接取执行expect部分代码，这样可以使程序一直运行。</li>
+<li>for num_1 in range(7836,9200):<br>range中的是开始地址和结束地址的页数<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191211161550405.png" alt=""></li>
+<li>注意：cookie有效时间是7200s，要按时更换一下cookie，如果是多线程的话速度会快些，这里我就不写了（其实是不会，只是了解了一下，到了必要的时候再现学现用）</li>
+<li>刚觉自己写玩没有怎么去解释，如果有疑问可以留言交流，如果不懂怎么安装mysql和破解navicat可以下方留言评论，自己以前在安装mysql的时候花了一些时间，搞不懂怎是个文件夹而不是客户端，还有配置环境变量。</li>
+<li>获取到数据后，我用django做电子书资源网站，这期教程就结束了额。</li>
 </ul>
  
       <!-- reward -->
@@ -219,7 +187,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/07/26/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86(%E4%BA%8C)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -230,19 +198,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/07/26/%E5%90%89%E4%BB%96%E8%B0%B1%E5%A4%A7%E5%85%A8/" class="article-nav-link">
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            吉他谱大全
+            python爬虫cookie模拟登陆
           
         </div>
       </a>
     
     
-      <a href="/2020/07/26/hello-world/" class="article-nav-link">
+      <a href="/2020/07/26/%E5%90%89%E4%BB%96%E8%B0%B1%E5%A4%A7%E5%85%A8/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">吉他谱大全</div>
       </a>
     
   </nav>

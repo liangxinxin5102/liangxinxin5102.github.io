@@ -9,7 +9,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    git基本使用 |  头号咸鱼
+    python爬虫cookie模拟登陆 |  头号咸鱼
   </title>
   <meta name="generator" content="hexo-theme-ayer">
   
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-git基本使用"
+  id="post-python爬虫cookie模拟登陆"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,22 +66,22 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  git基本使用
+  python爬虫cookie模拟登陆
 </h1>
  
 
     </header>
      
     <div class="article-meta">
-      <a href="/2020/07/26/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-07-26T13:43:37.505Z" itemprop="datePublished">2020-07-26</time>
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="article-date">
+  <time datetime="2020-07-26T14:38:12.100Z" itemprop="datePublished">2020-07-26</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">553</span>
+            <span class="post-count">964</span>
         </span>
     </span>
 
@@ -90,7 +90,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -105,53 +105,36 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="一、下载并安装git"><a href="#一、下载并安装git" class="headerlink" title="一、下载并安装git"></a>一、下载并安装git</h2><h2 id="二、开始操作"><a href="#二、开始操作" class="headerlink" title="二、开始操作"></a>二、开始操作</h2><ul>
-<li>右键然后点击git bash进入命令框</li>
-<li>命令是仿照linux，可以使用ls，pwd，cd</li>
-<li>创建一个文件夹，在此路径下git init，创建了一个仓库，会有一个.git文件</li>
-<li>三、配置仓库</li>
-<li>git config –global user.name “用户名字”</li>
-<li>git config –global user.email “邮件地址”<h2 id="四、基本操作"><a href="#四、基本操作" class="headerlink" title="四、基本操作"></a>四、基本操作</h2><h4 id="1-添加提交内容"><a href="#1-添加提交内容" class="headerlink" title="1. 添加提交内容"></a>1. 添加提交内容</h4></li>
-<li>git add sunck.txt</li>
-<li>git commit -m “第一次添加”<blockquote>
-<p>git add .</p>
-</blockquote>
-</li>
-</ul>
-<p>git commit . -m “全部提交”</p>
-<h4 id="2-查看状态"><a href="#2-查看状态" class="headerlink" title="2. 查看状态"></a>2. 查看状态</h4><ul>
-<li>git status<br>//告诉你哪个文件被改变了</li>
-<li>git diff<br>//查看修改的内容</li>
-<li>git log<br>//查看日志</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ git log</span><br><span class="line">commit f08b4228397124c50d65583567e5c217801d9fe4 (HEAD -&gt; master)</span><br><span class="line">Author: liangxinxin5102 &lt;1974733812@qq.com&gt;</span><br><span class="line">Date:   Sun Dec 29 01:04:33 2019 +0800</span><br><span class="line"></span><br><span class="line">    一次添添加</span><br><span class="line">    </span><br><span class="line">会显示提交的编号，分支，用户，时间，注释</span><br><span class="line">$ git log --pretty&#x3D;oneline</span><br><span class="line">f08b4228397124c50d65583567e5c217801d9fe4 (HEAD -&gt; master) 一次添添加</span><br></pre></td></tr></table></figure>
-<h4 id="3-回归版本"><a href="#3-回归版本" class="headerlink" title="3. 回归版本"></a>3. 回归版本</h4><ul>
-<li>git reset –hard HEAD^        回到上一版本</li>
-<li>git reset –hard HEAD^^       回到上上一版本</li>
-<li>git reset –hard HEAD~100     回到上100版本</li>
-<li>git reset –hard HEAD         具体版本号 </li>
-<li>git refog    记录每一次提交的命令<h4 id="4-工作区与缓存区"><a href="#4-工作区与缓存区" class="headerlink" title="4. 工作区与缓存区"></a>4. 工作区与缓存区</h4><a href="https://blog.csdn.net/qq_34964399/article/details/79869512" target="_blank" rel="noopener">传送门</a></li>
-<li>checkout –filename //让文件回到add或者commit状态<h4 id="5-连接GitHub服务器–密钥与公钥"><a href="#5-连接GitHub服务器–密钥与公钥" class="headerlink" title="5. 连接GitHub服务器–密钥与公钥"></a>5. 连接GitHub服务器–密钥与公钥</h4></li>
-<li>ssh-keygen    -t      rsa         -C         “<a href="mailto:1974733812@qq.com">1974733812@qq.com</a>“</li>
-<li>ssh   -T   <a href="mailto:git@github.com">git@github.com</a>                           #测试是否连接成功<blockquote>
-<p>注意记录位置，要将公钥复制粘贴到github账号的设置里</p>
-</blockquote>
-<h4 id="6-创建远程仓库"><a href="#6-创建远程仓库" class="headerlink" title="6. 创建远程仓库"></a>6. 创建远程仓库</h4><img src="http://youdaoyunlxx.oss-cn-hangzhou.aliyuncs.com/git/clipboard.png" alt="image"></li>
-<li>关联远程仓库     git remote add origin <a href="https://github.com/liangxinxin5102/git_test1.git" target="_blank" rel="noopener">https://github.com/liangxinxin5102/git_test1.git</a></li>
-<li>删除关联    git  remote rm origin<h4 id="7-远程仓库的推送与拉取"><a href="#7-远程仓库的推送与拉取" class="headerlink" title="7. 远程仓库的推送与拉取"></a>7. 远程仓库的推送与拉取</h4>（先要拉取，才能推送  git pull origin master –allow-unrelated-histories）</li>
-<li>推送      git push origin master</li>
-<li>拉取       git pull origin master<blockquote>
-<p>正常情况下我们没有本地库，开发一般是现有远程库再克隆本地库，这样远程就不会和本地冲突了 </p>
+  <h2 id="python爬虫cookie模拟登陆"><a href="#python爬虫cookie模拟登陆" class="headerlink" title="python爬虫cookie模拟登陆"></a>python爬虫cookie模拟登陆</h2><p>自己学习网络上面的课外知识有一年多了，自己也比较喜欢去学那些，在大学里老师不会教你去学爬虫，开发web，数据分析，unity3d，Linux，git等等，但是我觉得这些才是真正有用的，而那些课程几乎是靠一门丢一门，真正实用的没有多少，这是我的感觉。<br>然后，自己在网上学这学那学了一年多了，学起来感觉也很艰难，一步一个脚印，总是会遇到一些坑，自己卡一段时间，但是通过百度看博客什么的，寻找解决思路，最终竟然云开雾散。<br>不多说了，直接上代码。</p>
 <ul>
-<li>克隆 git clone  <a href="https://github.com/liangxinxin5102/git_test1.git" target="_blank" rel="noopener">https://github.com/liangxinxin5102/git_test1.git</a></li>
+<li>代码</li>
 </ul>
-</blockquote>
-<h4 id="8-不提交指定文件"><a href="#8-不提交指定文件" class="headerlink" title="8. 不提交指定文件"></a>8. 不提交指定文件</h4></li>
-<li>创建文件     touch .gitignore</li>
-<li>在 .gitignore文件中填写不提交的文件名，此目录下的文件不会被提交， .gitignore文件会提交上去<h2 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h2></li>
-<li>创建分支      git branch 分支名</li>
-<li>切换分支       git checkout 分支名</li>
-<li>创建与切换同时进行   git checkout -b 分支名<h2 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h2></li>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0'</span>,</span><br><span class="line">    <span class="string">'Cookie'</span>:<span class="string">'jianyue_session=eyJpdiI6IkRkYXB3VFJENUkrNUJsZVdcL3k5NmJRPT0iLCJ2YWx1ZSI6IlcrallsRnVcL01zOGVoUnFzYjJNQ1dWYkhldUNnZ0hiUkY2Rzc2blA5dnhtRm8wbjRkMUpJMVQ3VURzUThCQ2RJN3pndytKWWJ6ZVJEZW5BK0tCSHRnZz09IiwibWFjIjoiYzc5YzM1NWZjODVmYzQyYWE3M2Y4ZmRhMGI5MzlhYTRmMTMwMzQyN2U1MWMzMTMwZjg1NTE1NGZlM2FiNTI4YSJ9; expires=Tue, 10-Dec-2019 14:31:47 GMT; Max-Age=7200; path=/; httponly'</span></span><br><span class="line">&#125;</span><br><span class="line">params=&#123;</span><br><span class="line">    <span class="string">"_token"</span>:<span class="string">"P1o8Fz9ZOAuBojBsNGNfPa9vivr5PqRBUFwstL8I"</span>,</span><br><span class="line">    <span class="string">"mobile"</span>:<span class="string">'15263819410'</span>,</span><br><span class="line">    <span class="string">"password"</span>:<span class="string">"15263819410"</span>,</span><br><span class="line">    <span class="string">"remember"</span>:<span class="string">"1"</span></span><br><span class="line">&#125;</span><br><span class="line">session = requests.Session()</span><br><span class="line">psot_url = <span class="string">'http://jianyue.pro/login'</span></span><br><span class="line">session.post(psot_url,data=params,headers=headers)</span><br><span class="line">resopnse = session.get(<span class="string">'http://jianyue.pro/app/ebook/details/3665'</span>,headers=headers)</span><br><span class="line">resopnse.encoding=<span class="string">'utf-8'</span></span><br><span class="line">htmlEmts_name = etree.HTML(resopnse.text).xpath(<span class="string">'/html/body/div[4]/div/div/img/@src'</span>)</span><br><span class="line">print(htmlEmts_name)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">G:\Project\Pycharm\Selenium\venv\Scripts\python.exe G:/Project/Pycharm/Selenium/简阅/jy_1.py</span><br><span class="line"><span class="number">200</span></span><br><span class="line">[<span class="string">'/storage/ebookimg/3665.jpg'</span>]</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="讲解"><a href="#讲解" class="headerlink" title="讲解"></a>讲解</h2><ul>
+<li><p>headers = {<br>‘User-Agent’:’Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0’,<br>‘Cookie’:’jianyue_session=eyJpdiI6IkRkYXB3VFJENUkrNUJsZVdcL3k5NmJRPT0iLCJ2YWx1ZSI6IlcrallsRnVcL01zOGVoUnFzYjJNQ1dWYkhldUNnZ0hiUkY2Rzc2blA5dnhtRm8wbjRkMUpJMVQ3VURzUThCQ2RJN3pndytKWWJ6ZVJEZW5BK0tCSHRnZz09IiwibWFjIjoiYzc5YzM1NWZjODVmYzQyYWE3M2Y4ZmRhMGI5MzlhYTRmMTMwMzQyN2U1MWMzMTMwZjg1NTE1NGZlM2FiNTI4YSJ9; expires=Tue, 10-Dec-2019 14:31:47 GMT; Max-Age=7200; path=/; httponly’<br>}</p>
+</li>
+<li><p>一个字典，用来传递POST请求的参数（查看操作如下）<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/2019121022203481.png" alt="">然后点击登陆<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191210222413650.png" alt=""><br>可以看到右边只有一个POST请求，其余的为GET请求，代码中所需要的cookie参数就在里面<br>点击可以看到响应头与请求头<br>请求头是你的浏览器向服务器发送的信息<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191210222710203.png" alt="">可以看到里面最后一行参数就是浏览器信息，在header中加入这条数据可已伪装成浏览器，是一种简单的反爬虫方法。</p>
+</li>
+<li><p>强调一点，cookie的信息在响应头中，作者在这里入坑了，然后以为现在网站的反扒机制很厉害，防止伪站发送请求。<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191210223239236.png" alt="">我选的是中间的一条，我也不知到为什么，反正最后成功了。<br>params={<br>“_token”:”P1o8Fz9ZOAuBojBsNGNfPa9vivr5PqRBUFwstL8I”,<br>“mobile”:’15263819410’,<br>“password”:”15263819410”,<br>“remember”:”1”<br>}<br>这行代码里面传递的是表单参数<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191210223652603.png" alt=""><br>都是字典形式写入<br> session.post(psot_url,data=params,headers=headers)#传入参数</p>
+</li>
+<li><p>然后就是xpath语法筛选内容</p>
+</li>
+<li><p>这种晒选方法我很推荐给新手们，当时最初学爬虫的时候用BeautifulSoup，正则表达式晒选，搞得自己云里雾里，xpath当时也没有学会，因为输出的数据是个空列表，或者是个不知到几进制的标签，然后就入坑放弃了，而且我学爬虫的目的是想批量爬去快手视频（现在想想觉得那时候真的是天真，不知到有多难）</p>
+</li>
+<li><p>现在很清晰了，也再次“相信了可见皆可爬”的信念了。</p>
+</li>
+<li><p>xpath在后面的博客中将会介绍，这里就不多说了。<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191210224836326.png" alt="">然后就得到了想要的结果<br>加上域名就可以得到想要的图像地址了<br><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20191210225026596.png" alt=""></p>
+</li>
+<li><p>我想要爬去这个网站的数据，然后自己做一个电子书资源网站，用python的Django框架，后期的工作是批量爬取，然后存到数据库。</p>
+</li>
+<li><p><em>这是我的第一篇博客，本来不打算写博客的，自己在遇到问题的时候会搜到很多博客来寻早解答，但觉得那些有的不是那么实用，也有些老，而且有很多转发的。自己想写一些博客，做出一点贡献，也记录自己的学习历程，表达自己的想，还会收到一些回复，觉得挺好的</em></p>
+</li>
 </ul>
  
       <!-- reward -->
@@ -219,7 +202,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/07/26/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -230,19 +213,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2020/07/26/%E5%90%89%E4%BB%96%E8%B0%B1%E5%A4%A7%E5%85%A8/" class="article-nav-link">
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0(%E4%BA%8C)%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BA%93/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            吉他谱大全
+            python爬虫学习(二)：基本的库
           
         </div>
       </a>
     
     
-      <a href="/2020/07/26/hello-world/" class="article-nav-link">
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86(%E4%BA%8C)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
+        <div class="article-nav-title">python爬虫cookie模拟登陆(二)</div>
       </a>
     
   </nav>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    python爬虫学习(二)：基本的库 |  头号咸鱼
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      <canvas class="fireworks"></canvas>
+      <style>
+        .fireworks {
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 99999;
+          pointer-events: none;
+        }
+      </style>
+      
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-python爬虫学习(二)：基本的库"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  python爬虫学习(二)：基本的库
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0(%E4%BA%8C)%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BA%93/" class="article-date">
+  <time datetime="2020-07-26T14:38:12.102Z" itemprop="datePublished">2020-07-26</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">2.5k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">9 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h3 id="python爬虫学习-二-：基本的库和简单实战"><a href="#python爬虫学习-二-：基本的库和简单实战" class="headerlink" title="python爬虫学习(二)：基本的库和简单实战"></a>python爬虫学习(二)：基本的库和简单实战</h3><h4 id="1-请求信息：requests"><a href="#1-请求信息：requests" class="headerlink" title="1.请求信息：requests"></a>1.请求信息：requests</h4><ul>
+<li><p>requests.get(url,header=header)向服务器发送GET请求</p>
+</li>
+<li><p>requests.post(url,header=header)向服务器发送POST请求</p>
+</li>
+<li><p>示例代码get：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">"https://down.freembook.com/mixc/"</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0'</span>,</span><br><span class="line">&#125;</span><br><span class="line">demo = requests.get(url,headers=headers)</span><br><span class="line">print(demo.status_code)</span><br><span class="line">print(demo.text)</span><br><span class="line">print(demo.content)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20200702155030.png" alt=""></p>
+</li>
+<li><p>示例代码post:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">"https://down.freembook.com/mixc/"</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0'</span>,</span><br><span class="line">&#125;</span><br><span class="line">params = &#123;</span><br><span class="line">        <span class="string">"_token"</span>: <span class="string">"P1o8Fz9ZOAuBojBsNGNfPa9vivr5PqRBUFwstL8I"</span>,</span><br><span class="line">        <span class="string">"mobile"</span>: <span class="string">'15263819410'</span>,</span><br><span class="line">        <span class="string">"password"</span>: <span class="string">"15263819410"</span>,</span><br><span class="line">        <span class="string">"remember"</span>: <span class="string">"1"</span></span><br><span class="line">    &#125;</span><br><span class="line">demo = requests.post(url,data=params,headers=headers)</span><br></pre></td></tr></table></figure>
+
+<h5 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h5><ul>
+<li><p>header里面可以装浏览器型号，cookie等信息，伪装成浏览器是最简单的反爬虫方法</p>
+</li>
+<li><p>url是要爬取的地址</p>
+</li>
+<li><p>demo.text输出HTML源码，demo.content是输出二进制文件，保存的时候常用到</p>
+</li>
+<li><p>post多一个参数是data，里面携带参数发送给服务器，开发过网站的很容易理解</p>
+</li>
+<li><p>requests方法还可以设置session等，是一种登录机制</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-数据筛选lxml："><a href="#2-数据筛选lxml：" class="headerlink" title="2.数据筛选lxml："></a>2.数据筛选lxml：</h4><blockquote>
+<p>有很多的数据筛选库，我初学时用的时BeautifulSoup和re，现在觉得不好学，最好理解和好用的我认为是lxml库</p>
+</blockquote>
+<ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install lxml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lxml使用的是XPath语法</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20200702161405.png" alt=""></p>
+<p><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20200702165643.png" alt=""></p>
+<ul>
+<li><p>示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">demo = requests.get(url,headers=headers)</span><br><span class="line">demo_address = etree.HTML(demo.text).xpath(<span class="string">'//a/@href'</span>)<span class="comment">#获取所有a标签下的href地址</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>会了这两个库就可以写简单的爬虫了，但是要理解dom树，还有python数据类型。</p>
+</blockquote>
+<h4 id="3-保存数据"><a href="#3-保存数据" class="headerlink" title="3.保存数据"></a>3.保存数据</h4><ul>
+<li><p>主要以二进制文件的形式保存，高级一写的是保存在数据库里</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">demo4 = requests.get(new_url_3, headers=headers)</span><br><span class="line">f = open(<span class="string">'D:\\'</span> + str(j) + <span class="string">'.mobi'</span>, <span class="string">'wb'</span>)</span><br><span class="line"><span class="comment"># 将下载到的图片数据写入文件</span></span><br><span class="line">f.write(demo4.content)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="4-实战代码"><a href="#4-实战代码" class="headerlink" title="4.实战代码:"></a>4.实战代码:</h4><ul>
+<li><p>单页面爬取并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import  requests</span><br><span class="line">from lxml import etree</span><br><span class="line">def getspider(url):</span><br><span class="line">    headers &#x3D; &#123;</span><br><span class="line">        &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:67.0) Gecko&#x2F;20100101 Firefox&#x2F;67.0&#39;</span><br><span class="line">    &#125;</span><br><span class="line">    response &#x3D; requests.get(url, headers&#x3D;headers,)</span><br><span class="line">    listpassages&#x3D;[]</span><br><span class="line">    if response.status_code &#x3D;&#x3D; 200:</span><br><span class="line">        print(&quot;网页抓取成功&quot;)</span><br><span class="line">    response.encoding&#x3D;&quot;utf-8&quot;#观察网页编码方式进行编码</span><br><span class="line">    response&#x3D;response.text</span><br><span class="line">    element &#x3D; etree.HTML(response)</span><br><span class="line">    passages &#x3D; element.xpath(&quot;.&#x2F;&#x2F;dd[@id&#x3D;&#39;contents&#39;]&#x2F;&#x2F;text()&quot;)</span><br><span class="line">    for passage in passages:</span><br><span class="line">        listpassages.append(passage)</span><br><span class="line">    return listpassages</span><br><span class="line">def save_text(texts):</span><br><span class="line">    f&#x3D;open(&quot;F:\Python Document\story_1.txt&quot;,&quot;w&quot;,encoding&#x3D;&quot;utf-8&quot;)</span><br><span class="line">    for text in texts:</span><br><span class="line">        f.write(text)</span><br><span class="line">    f.close()</span><br><span class="line">def main():</span><br><span class="line">    url&#x3D;&quot;https:&#x2F;&#x2F;www.23us.so&#x2F;files&#x2F;article&#x2F;html&#x2F;32&#x2F;32983&#x2F;15413313.html&quot;</span><br><span class="line">    listpassages&#x3D;getspider(url)</span><br><span class="line">    save_text(listpassages)</span><br><span class="line">    # print(len(listpassages))</span><br><span class="line">    # print(listpassages[])</span><br><span class="line">    # for passage in listpassages:</span><br><span class="line">    #     print(passage)</span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这是某小说网站一个单页面,是很早以前对爬虫有点门道时候写的</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/clipboar74475757d.png" alt=""></p>
+<ul>
+<li><p>利用for循环爬取大量数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from lxml import etree</span><br><span class="line">url &#x3D; &quot;https:&#x2F;&#x2F;down.freembook.com&#x2F;mixc&#x2F;&quot;</span><br><span class="line">headers &#x3D; &#123;</span><br><span class="line">    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko&#x2F;20100101 Firefox&#x2F;71.0&#39;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demo &#x3D; requests.get(url,headers&#x3D;headers)</span><br><span class="line">demo_address &#x3D; etree.HTML(demo.text).xpath(&#39;&#x2F;&#x2F;a&#x2F;@href&#39;)</span><br><span class="line"></span><br><span class="line">j&#x3D;0</span><br><span class="line">print(&quot;开始&quot;)</span><br><span class="line">for mydemo_address in demo_address[1:]:#58完成</span><br><span class="line">    new_url_1 &#x3D; url + mydemo_address</span><br><span class="line">    demo2 &#x3D; requests.get(new_url_1)</span><br><span class="line">    demo2_address &#x3D; etree.HTML(demo2.text).xpath(&#39;&#x2F;&#x2F;a&#x2F;@href&#39;)</span><br><span class="line">    new_url_2 &#x3D; new_url_1 + demo2_address[1]</span><br><span class="line">    demo3 &#x3D; requests.get(new_url_2, headers&#x3D;headers)</span><br><span class="line">    demo3_address &#x3D; etree.HTML(demo3.text).xpath(&#39;&#x2F;&#x2F;a&#x2F;@href&#39;)</span><br><span class="line">    new_url_3 &#x3D; new_url_2 + demo3_address[3]</span><br><span class="line">    demo4 &#x3D; requests.get(new_url_3, headers&#x3D;headers)</span><br><span class="line">    f &#x3D; open(&#39;D:\\&#39; + str(j) + &#39;.mobi&#39;, &#39;wb&#39;)</span><br><span class="line">    # 将下载到的图片数据写入文件</span><br><span class="line">    f.write(demo4.content)</span><br><span class="line">    f.close()</span><br><span class="line">    print(&quot;第&quot; + str(j) + &quot;本下载完成&quot;)</span><br><span class="line">    j &#x3D; j+1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这是写这篇博客的前几天写了，爬虫兴趣来了顺便整理了一下自己的爬虫笔记。此时一些免费电子书网站处在风口浪尖，有很多的都关闭了，我在到处找kindle电子书，发现了这个网站，就顺便重拾我的爬虫来爬一波，站长人太好了！</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20200630213021.png" alt=""></p>
+<blockquote>
+<p>我把这个代码搞到了服务器上面运行</p>
+</blockquote>
+<p><img src="https://gitee.com/liangxinixn/demo13_drawing_bed/raw/master/blog01/20200701095658.png" alt=""></p>
+<blockquote>
+<p>下载了九百多本就没有下载了，很有些慢，要用到多线程。在现在看来，可以不用去学threading库，直接用爬虫框架Scrapy，上面集成了很多库。</p>
+</blockquote>
+<h4 id="5-总结与感悟"><a href="#5-总结与感悟" class="headerlink" title="5.总结与感悟:"></a>5.总结与感悟:</h4><ul>
+<li>自己第一开始学爬虫的时候很懵，在脑海里没有url要是字符串，是传进来的参数，还有爬取到的数据是个列表，然后要用for循环遍历。自己得到最多的结果是一个空列表，然而自己还不知道怎么搞，感觉那个时候好傻。</li>
+<li>最后学学放放逐渐有了概念，也会解决一定的问题，那是自己学爬虫的目标是爬取快手视频，然后自己在这个上面耗了很长的时间，因为那是我觉得没什么好爬的数据，最后爬不成功就放弃了。</li>
+<li>为了这个自己看了模拟登录，通过验证码等反扒机制，看到多线程多进程都没用上，前两个的反扒需要有一定的经验和基础，当时的我只是学学没有成功，而且当时想要一簇就成。摸索点门道出来就像直接搞，结果是入坑了，坑了好长时间什么都不想搞。</li>
+<li>然后再放放看看贴子，终于有种方法了，fiddler抓包工具，贴别坑的是网上那种前篇一律的那个教程，我最后找到了一个博主写的教程，也是fiddler，我学习最后成功了，但是一次只能爬取二十条视频，然后又要粘贴复制，还是没有达到自己的预期效果。</li>
+<li>然后就是终极方案了，可见皆可爬的selenium，当时自己已经很有些基础了，会用这个库自动输入提取码来获取百度网盘资源。这次想着一点一点来，其趋势也还好，我成功的可以点击自己的主页，点击进入主播主页然后点击视频，也可以获取视频播放页面的源码。但是，但是就偏偏没有视频链接地址，那个浏览器上面可看到的.mp4文件地址却再爬取的源码上面没有。</li>
+<li>现在觉得估计是请求的数据，数据没有渲染到dom树上就我就爬完了。当时遇到selenium安装问题，打开的页面没有登录信息等问题等，很多问题，再解决这些问题和学习过程中自己的能力有不少的提升。</li>
+<li>自己还学了scrapy框架的，以为这个很厉害的爬虫框架可以解决自己的问题。但是爬虫主要的是分析网页源码，然后再是写代码，用都没有用就没搞了，现在要充型学一波了。</li>
+<li>估计是有些执着，实在没办法了，自己再大一的暑假手动下载，有事没事就检查元素，复制，粘贴，下载，下载了有四万多个视频，六十多G还是一百二十多G，现在保存再自己的网盘，真的累死了非常浪费时间，坚持了一个月多一点。然而不是什么都没学到，我学了一波python的图形化界面库thinkter，写了个下载的小程序，输入网址就可以开始下载，好了就可以清空。当时还以为thinkter是个第三方库，怎么也搞不到，还准备不用这个库的。</li>
+<li>现在是大二暑假了，寒假和暑假对接上来了，还是很怀恋去年那个时候，但是自己也把电脑搞成了ubuntu系统，说不完游戏，结果一搜linux上面有什么游戏，下载了个像帝国时代那样及时战略的游戏，玩得爽歪歪。真是笑了，后来换成win10后还想网那个游戏，却找不到了，下载的帝国时代不是那个画质，不一样就没玩了，感觉还真很很怀恋，也真香。</li>
+<li>自己按照自己的python路线学习，然后就是网站后端开发django，遇到了不少问题，后来知道了前后端分离，又学了波Vue，然后与服务器部署，自己有了自己的网站“星星的博客小屋”，也终于有点拿得出手的东西，自己学着学那却没有学出什么名堂，成绩又是摸爬滚打，挣扎再及格线那里的那种。</li>
+<li>自己之前还想着用爬取的视频用来练手做个视频网站，然后还有安卓软件，现在知道了那些视频服务器根本放不下，也体验了什么是1Mb/s的带宽，个人网站也越做越不知道它的意义了，不知道自己要不要继续部署再服务器上，毕竟还是再耗钱的，而自己只是对别人说“我有自己的个人网站，用vue+django前后端分离建的”</li>
+<li>不想再搞网站了，然后准备这个暑假学学硬件51单片机等，前天投了一下图像算法工程师的简历，结果是没有面试机会，虽然会python但是没有相关的知识和经历，推荐我python后端之类的实习，而且建议我重点学习一个方向。</li>
+<li>确实应该重点学习一个方向，但是我觉得那样很没有乐趣，而且深入学习不是网上找点免费教程就可以学好的。所以这个暑假TensorFlow和51单片机一起学，我吉他甩了一下把那个便宜的变调摔坏了，然后自己破费买了个好的变调夹，想好好学学吉他。</li>
+</ul>
+ 
+      <!-- reward -->
+      
+      <div id="reward-btn">
+        打赏
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://yoursite.com/2020/07/26/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0(%E4%BA%8C)%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%BA%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0(%E4%B8%80)%E7%90%86%E8%AE%BA/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            python爬虫学习(一)理论
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/07/26/python%E7%88%AC%E8%99%ABcookie%E6%A8%A1%E6%8B%9F%E7%99%BB%E9%99%86/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">python爬虫cookie模拟登陆</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "",
+    app_key: "",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020
+        <i class="ri-heart-fill heart_icon"></i> liangxinxin
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/fish.svg" alt="头号咸鱼"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/photos">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/person">简历</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://gitee.com/liangxinixn/guitar/raw/master/image01/20200726220206.png">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://gitee.com/liangxinixn/guitar/raw/master/image01/20200726220308.png">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script>
+
+<script src="/js/clickBoom1.js"></script>
+
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+    <div id="music">
+    
+    
+    
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=441120082&auto=0&height=32"></iframe>
+</div>
+
+<style>
+    #music {
+        position: fixed;
+        right: 15px;
+        bottom: 0;
+        z-index: 998;
+    }
+</style>
+    
+  </div>
+</body>
+
+</html>
